@@ -1,0 +1,1 @@
+A simple notes app made with typescript, with adding and deleting notes
