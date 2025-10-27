@@ -8,9 +8,20 @@ function addNote() {
     }
     var noteText = noteInput.value.trim();
     if (noteText !== '') {
-        var li = document.createElement('li');
-        li.textContent = noteText;
-        notesList.appendChild(li);
+        var li_1 = document.createElement('li');
+        var noteSpan = document.createElement('span');
+        noteSpan.textContent = noteText;
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+        deleteButton.addEventListener('click', function () {
+            if (notesList) {
+                notesList.removeChild(li_1);
+            }
+        });
+        li_1.appendChild(noteSpan);
+        li_1.appendChild(deleteButton);
+        notesList.appendChild(li_1);
         noteInput.value = '';
     }
 }
