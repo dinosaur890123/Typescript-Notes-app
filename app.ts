@@ -11,7 +11,18 @@ function addNote() {
 
     if (noteText !== '') {
         const li = document.createElement('li');
-        li.textContent = noteText;
+        const noteSpan = document.createElement('span');
+        noteSpan.textContent = noteText;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+        deleteButton.addEventListener('click', () => {
+                if (notesList) {
+                    notesList.removeChild(li);
+                }
+            });
+        li.appendChild(noteSpan);
+        li.appendChild(deleteButton);
         notesList.appendChild(li);
         noteInput.value = '';
     }
